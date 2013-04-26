@@ -2,7 +2,11 @@ class MessagesController < ApplicationController
   respond_to :json, :xml
 
   def index
-    @messages = Message.where("id > #{params['last_message_id']}")
+    if params['last_message_id']
+      @messages = Message.where("id > #{params['last_message_id']}")
+    else
+      @messages = Message.last(5)
+    end
     render :json => @messages
   end
 
