@@ -11,11 +11,12 @@ class MessagesController < ApplicationController
   end
 
   def create
-    if message = Message.create(:text => params[:text],
-                                :user => params[:user])
+    message = Message.create(:text => params[:text], :user => params[:user])
+
+    if message.persisted?
       render :json => { :message => message, :status => 201 }
     else
-      render :json => { :error => message.errors, :status => 304 }
+      render :json => { :error => message.errors.full_messages.join(", "), :status => 304 }
     end
   end
 end
