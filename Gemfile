@@ -27,6 +27,7 @@ end
 group :production do
   gem 'pg'
   gem 'therubyracer'
+  gem 'rails_12factor'
 end
 
 gem 'jquery-rails'
