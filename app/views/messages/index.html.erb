@@ -1,0 +1,7 @@
+<% @messages.each do |message| %>
+  <p><%= message.user %>: <%= message.text %></p>
+<% end %>
+
+<%= form_tag("/messages/destroy_all") do %>
+  <%= submit_tag "Destroy" %>
+<% end %>

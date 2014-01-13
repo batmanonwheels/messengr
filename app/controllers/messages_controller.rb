@@ -2,12 +2,19 @@ class MessagesController < ApplicationController
   respond_to :json, :xml
 
   def index
-    if params['last_message_id']
-      @messages = Message.where("id > #{params['last_message_id']}")
-    else
-      @messages = Message.last(5)
+    respond_to do |format|
+      format.json {
+        if params['last_message_id']
+          @messages = Message.where("id > #{params['last_message_id']}")
+        else
+          @messages = Message.last(5)
+        end
+        render :json => @messages
+      }
+      format.html {
+        @messages = Message.last(10)
+      }
     end
-    render :json => @messages
   end
 
   def create
@@ -18,6 +25,11 @@ class MessagesController < ApplicationController
     else
       render :json => { :error => message.errors.full_messages.join(", "), :status => 304 }
     end
+  end
+
+  def destroy_all
+    Message.destroy_all
+    redirect_to messages_path
   end
 
   private

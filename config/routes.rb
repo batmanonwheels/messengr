@@ -1,5 +1,10 @@
 Chattr::Application.routes.draw do
-  resources :messages
+  root :to => "messages#index"
+  resources :messages do
+    collection do
+      post :destroy_all
+    end
+  end
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
