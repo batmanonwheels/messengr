@@ -1,0 +1,3 @@
+INSTAGRAM_CLIENT_ID="8e23a4753b7c4e638edda6b2d7d273e5"
+INSTAGRAM_CLIENT_SECRET="d2fbaed5ff5a4882acf15c7d3045c05a"
+INSTAGRAM_REDIRECT_URI="http://messengr.herokuapp.com/instagram"

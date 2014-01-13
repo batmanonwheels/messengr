@@ -1,5 +1,9 @@
 Chattr::Application.routes.draw do
   root :to => "messages#index"
+
+  get "/instagram_login" => "application#instagram_login"
+  get "/instagram" => "application#instagram"
+
   resources :messages do
     collection do
       post :destroy_all
