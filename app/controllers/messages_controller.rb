@@ -29,6 +29,8 @@ class MessagesController < ApplicationController
 
   def destroy_all
     Message.destroy_all
+    Message.create(:user => "edweng", :text => "Welcome to Messengr!")
+
     redirect_to messages_path
   end
 

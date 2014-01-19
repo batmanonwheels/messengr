@@ -48,3 +48,5 @@ gem 'obscenity'
 
 # To use debugger
 # gem 'debugger'
+
+gem 'httparty'
