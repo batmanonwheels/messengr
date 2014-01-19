@@ -2,7 +2,9 @@
 
 <div class="container" style="margin-top: 200px; text-align: center;">
   <h1>SUCCESS!</h1>
-  <h2><%= @access_token %></h1>
+  <% if @access_token %>
+    <h2><%= @access_token %></h2>
+  <% end %>
 </div>
 
 <style>
