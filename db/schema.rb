@@ -9,16 +9,16 @@
 # from scratch. The latter is a flawed and unsustainable approach (the more migrations
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
-# It's strongly recommended to check this file into your version control system.
+# It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130420020937) do
+ActiveRecord::Schema.define(version: 20140119235216) do
 
-  create_table "messages", :force => true do |t|
-    t.string   "text",       :null => false
+  create_table "messages", force: true do |t|
+    t.text     "text",       limit: 255, null: false
     t.integer  "room_id"
-    t.string   "user",       :null => false
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string   "user",                   null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
 end
