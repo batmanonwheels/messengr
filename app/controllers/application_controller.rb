@@ -5,6 +5,9 @@ class ApplicationController < ActionController::Base
     @access_token = params[:access_token]
   end
 
+  def home
+  end
+
   def instagram_login
     redirect_to "https://instagram.com/oauth/authorize/?client_id=#{INSTAGRAM_CLIENT_ID}&redirect_uri=#{INSTAGRAM_REDIRECT_URI}&response_type=token"
   end

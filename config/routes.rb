@@ -1,5 +1,5 @@
 Chattr::Application.routes.draw do
-  root :to => "messages#index"
+  root :to => "application#home"
 
   get "/instagram_login" => "application#instagram_login"
   get "/instagram" => "application#instagram"
