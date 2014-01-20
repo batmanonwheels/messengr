@@ -3,6 +3,7 @@ Chattr::Application.routes.draw do
 
   get "/instagram_login" => "application#instagram_login"
   get "/instagram" => "application#instagram"
+  post "/" => "application#home"
 
   resources :messages do
     collection do

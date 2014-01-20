@@ -1,10 +1,13 @@
 require 'httparty'
+require 'json'
+
+MESSENGR_URL = ENV['PROD'] ? "http://messengr.herokuapp.com/messages" : "http://localhost:1999/messages"
 
 print "Welcome to Messengr, what's your username: "
 @user = gets.chomp
 
 def send_message(message)
-  response = HTTParty.post("http://messengr.herokuapp.com/messages", { :query => { :color => "green" } })
+  response = HTTParty.post(MESSENGR_URL, :query => { :user => @user, :text => message })
 
   puts response.parsed_response.inspect
 

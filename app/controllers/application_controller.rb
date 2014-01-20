@@ -6,6 +6,13 @@ class ApplicationController < ActionController::Base
   end
 
   def home
+    if request.post? # for the POST exercise.
+      if params[:color].blank?
+        render :json => { :error => "Color parameter required." }
+      else
+        render :json => { :success => "I like #{params[:color]} too!" }
+      end
+    end
   end
 
   def instagram_login
