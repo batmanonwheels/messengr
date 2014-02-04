@@ -1,7 +1,7 @@
 require 'httparty'
 require 'json'
 
-MESSENGR_URL = ENV['PROD'] ? "http://messengr.herokuapp.com/messages" : "http://localhost:1999/messages"
+MESSENGR_URL = ENV['PROD'] ? "http://messengr.herokuapp.com/messages.json" : "http://localhost:1999/messages"
 
 print "Welcome to Messengr, what's your username: "
 @user = gets.chomp
@@ -17,6 +17,7 @@ end
 begin
   print "Say something: "
   message = gets.chomp
-  break if message == "quit"
-  response = send_message(message)
-end while true
+  if message == "quit"
+    response = send_message(message)
+  end
+end while message != "quit"
